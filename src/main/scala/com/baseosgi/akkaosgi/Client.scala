@@ -40,6 +40,7 @@ class SysoutPrinter extends Printer {
 
 
 // DS Annotation Demo
+/*
 @Component
 class DeclarativeServicePrinter extends Printer {
 
@@ -65,4 +66,4 @@ class Client {
   @Deactivate
   def stop = printer.print("Stop DS Client Component from Universe Hello World...")
 
-}
+}*/
