@@ -69,7 +69,6 @@ logLevel := Level.Warn
 
 
 // Post-processing of the features.xml file
-
 val triggeredTask = taskKey[Unit]("Triggered by featuresFile")
 
 triggeredTask <<= Def.task {
