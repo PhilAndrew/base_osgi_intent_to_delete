@@ -1,6 +1,6 @@
 package com.baseosgi.akkaosgi
 
-import aQute.bnd.annotation.component._
+//import aQute.bnd.annotation.component._
 import com.baseosgi.Printer
 import org.osgi.framework.{BundleContext, BundleActivator}
 

@@ -1,5 +1,5 @@
 package com.baseosgi.weather
-
+/*
 import java.text.SimpleDateFormat
 import java.util.Date
 
@@ -22,3 +22,4 @@ class WeatherProcessor extends Processor {
     exchange.getOut.setBody(dateString + ": " + dayTemp + " Celsius", classOf[String])
   }
 }
+*/

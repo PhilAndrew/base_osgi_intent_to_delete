@@ -1,11 +1,11 @@
 package com.baseosgi.akkaosgi
-
+/*
 import java.util.{Dictionary, Properties}
 import akka.actor.{ExtendedActorSystem, ActorRef, Props, ActorSystem}
 import akka.camel.ContextProvider
 import akka.osgi.OsgiActorSystemFactory
 import com.typesafe.config.{ConfigFactory, Config}
-import org.apache.camel.blueprint.BlueprintCamelContext
+//import org.apache.camel.blueprint.BlueprintCamelContext
 import org.apache.camel.impl.DefaultCamelContext
 import org.osgi.framework.{ServiceRegistration, BundleContext}
 //remove if not needed
@@ -21,19 +21,19 @@ final class AkkaCamelContextProvider extends ContextProvider {
   }
 }
 
-/* An OSGi BluePrint bean which interfaces with Akka */
+// An OSGi BluePrint bean which interfaces with Akka
 class AkkaBean {
   def getSystem = system
 
   var bundleContext: BundleContext = _
-  var camelContext: BlueprintCamelContext = _
+  var camelContext: Object = _ // BlueprintCamelContext
 
   def setBundleContext(bcontext: BundleContext) {
     println("set bundle contetx")
     this.bundleContext = bcontext
   }
 
-  def setCamelContext(camelContext: BlueprintCamelContext) {
+  def setCamelContext(camelContext: Object) {
     println("set camel context")
     this.camelContext = camelContext
   }
@@ -81,3 +81,5 @@ class AkkaBean {
       properties.asInstanceOf[Dictionary[String, Any]]))
   }
 }
+*/
+

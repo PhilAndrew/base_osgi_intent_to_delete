@@ -1,6 +1,6 @@
 package com.baseosgi.akkaosgi
 
-
+/*
 import akka.actor.{PoisonPill, Props, ActorRef, Actor}
 import akka.actor.Actor.Receive
 import akka.camel._
@@ -41,3 +41,4 @@ class SupervisorActor extends Actor {
   }
 
 }
+*/

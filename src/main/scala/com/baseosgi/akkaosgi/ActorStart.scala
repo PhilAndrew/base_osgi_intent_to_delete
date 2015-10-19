@@ -1,11 +1,12 @@
 package com.baseosgi.akkaosgi
-
+/*
 import akka.actor.{ActorRef, PoisonPill, Props}
 
-/*
+
 Responsible for starting and stopping all actors
  */
 
+/*
 class ActorStart {
 
   var akka: AkkaBean = _
@@ -27,3 +28,4 @@ class ActorStart {
     // @todo Should stop some akka actors volumeConsumer ! PoisonPill
   }
 }
+*/
