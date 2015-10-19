@@ -14,14 +14,15 @@ featuresRequired := Map(
 	"scr" -> "*",
 	"wrap" -> "*",
 	"log" -> "*",
+  "aries-blueprint" -> "*",
 	"camel-weather" -> "*",
-	"camel-blueprint" -> "*",
-	"aries-blueprint" -> "*")
+	"camel-blueprint" -> "*")
 
 featuresAddDependencies := true
 
 libraryDependencies ++= Seq(
-  FeatureID("org.apache.camel.karaf", "apache-camel", "2.15.3"),
+  FeatureID("org.apache.karaf.features", "standard", "4.0.1") intransitive(),
+  FeatureID("org.apache.camel.karaf", "apache-camel", "2.16.0"),
 
   "biz.aQute.bnd" % "annotation" % "2.4.0" % "provided",
   "org.json" % "json" % "20140107", // or "20141113"
