@@ -4,6 +4,8 @@ version := "1.0"
 
 scalaVersion := "2.11.7"
 
+import java.io.PrintWriter
+
 import wav.devtools.sbt.karaf.packaging.SbtKarafPackaging
 import SbtKarafPackaging.autoImport._
 import KarafPackagingKeys._
@@ -21,7 +23,7 @@ featuresRequired := Map(
 featuresAddDependencies := true
 
 libraryDependencies ++= Seq(
-  FeatureID("org.apache.karaf.features", "standard", "4.0.1") intransitive(),
+  FeatureID("org.apache.karaf.features", "standard", "4.0.1"),
   FeatureID("org.apache.camel.karaf", "apache-camel", "2.16.0"),
 
   "biz.aQute.bnd" % "annotation" % "2.4.0" % "provided",
@@ -60,3 +62,22 @@ OsgiKeys.additionalHeaders := Map(
 OsgiKeys.bundleActivator := Option("com.baseosgi.akkaosgi.Activator")
 
 logLevel := Level.Warn
+
+
+
+
+
+
+// Post-processing of the features.xml file
+
+val triggeredTask = taskKey[Unit]("Triggered by featuresFile")
+
+triggeredTask <<= Def.task {
+  val featuresFile = "./target/scala-2.11/features.xml"
+
+  val fileLines = io.Source.fromFile(featuresFile).getLines.toList
+  val outLines = fileLines.map( (line: String) => { if (line.indexOf("<repository>mvn:org.apache.karaf.features/standard/4.0.1/xml/features</repository>") >= 0) "" else line })
+  new PrintWriter(featuresFile) { write(outLines.mkString("\n")); close }
+  def unit: Unit = null
+  unit
+}.triggeredBy(featuresFile in Compile)
