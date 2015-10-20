@@ -24,7 +24,8 @@ OsgiKeys.exportPackage := Seq("com.baseosgi")
 OsgiKeys.privatePackage := Seq("com.baseosgi.akkaosgi")
 
 OsgiKeys.importPackage := Seq("scala", "scala.*", "org.json", "org.slf4j", "org.osgi.framework",
-  "org.apache.camel", "org.apache.camel.impl", "akka.osgi", "com.typesafe.config")
+  "org.apache.camel", "org.apache.camel.impl", "akka.osgi", "com.typesafe.config",
+  "akka.actor")
 
 OsgiKeys.bundleActivator := Option("com.baseosgi.akkaosgi.Activator")
 
