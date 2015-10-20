@@ -39,14 +39,6 @@ libraryDependencies ++= Seq(
   FeatureID("org.apache.camel.karaf", "apache-camel", "2.16.0"),
   FeatureID("org.apache.karaf.features", "standard", "4.0.2"),
 
-  //"com.typesafe.akka" % "akka-osgi_2.11" % "2.4.0"
-/*
-<bundle>mvn:com.typesafe.akka/akka-actor_2.11/2.3.10</bundle>
-<bundle>mvn:com.typesafe.akka/akka-camel_2.11/2.3.10</bundle>
-<bundle>mvn:com.typesafe.akka/akka-osgi_2.11/2.3.10</bundle>
-<bundle>mvn:com.typesafe/config/1.2.1</bundle>
-*/
-
   "com.typesafe.akka" %% "akka-actor" % "2.4.0",
   "com.typesafe.akka" %% "akka-osgi" % "2.4.0",
   "com.typesafe.akka" %% "akka-camel" % "2.4.0",
@@ -55,16 +47,14 @@ libraryDependencies ++= Seq(
 
 logLevel := Level.Warn
 
-
 import java.io.PrintWriter
 
-
-
-
-
-
-val removeFromFeatures = Seq("mvn:org.apache.karaf.features/standard", "mvn:org.osgi/org.osgi.compendium/4.3.1", "mvn:org.osgi/org.osgi.core/4.3.1",
-"mvn:org.slf4j/slf4j-api/1.7.12", "wrap:mvn:com.sun.xml.bind/jaxb-impl/2.2.6", "mvn:com.typesafe.akka/akka-slf4j_2.11/2.4.0")
+val removeFromFeatures = Seq("mvn:org.apache.karaf.features/standard",
+  "mvn:org.osgi/org.osgi.compendium/4.3.1",
+  "mvn:org.osgi/org.osgi.core/4.3.1",
+  "mvn:org.slf4j/slf4j-api/1.7.12",
+  "wrap:mvn:com.sun.xml.bind/jaxb-impl/2.2.6",
+  "mvn:com.typesafe.akka/akka-slf4j_2.11/2.4.0")
 
 // Post-processing of the features.xml file
 val triggeredTask = taskKey[Unit]("Triggered by featuresFile")
