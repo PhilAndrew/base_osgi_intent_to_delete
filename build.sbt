@@ -51,7 +51,7 @@ triggeredTask <<= Def.task {
   val featuresFile = "./target/scala-2.11/features.xml"
 
   val fileLines = io.Source.fromFile(featuresFile).getLines.toList
-  val outLines = fileLines.map( (line: String) => { if (line.indexOf("mvn:org.apache.karaf.features/standard/4.0.1/xml/features") >= 0) "" else line })
+  val outLines = fileLines.map( (line: String) => { if (line.indexOf("mvn:org.apache.karaf.features/standard") >= 0) "" else line })
   new PrintWriter(featuresFile) { write(outLines.mkString("\r\n")); close }
   def unit: Unit = null
   unit
