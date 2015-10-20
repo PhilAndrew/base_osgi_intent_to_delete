@@ -1,12 +1,10 @@
 package com.baseosgi.akkaosgi
-/*
-import akka.actor.{ActorRef, PoisonPill, Props}
+//import akka.actor.{ActorRef, PoisonPill, Props}
 
 
-Responsible for starting and stopping all actors
- */
+// Responsible for starting and stopping all actors
 
-/*
+
 class ActorStart {
 
   var akka: AkkaBean = _
@@ -20,12 +18,11 @@ class ActorStart {
     println("Start in ActorStart")
     // @todo Create actors here on startup
 
-    val supervisor = akka.getSystem.get.actorOf(Props[SupervisorActor], name="someActor")
-    supervisor ! SupervisorActor.Startup
+    //val supervisor = akka.getSystem.get.actorOf(Props[SupervisorActor], name="someActor")
+    //supervisor ! SupervisorActor.Startup
   }
 
   def stop(): Unit = {
     // @todo Should stop some akka actors volumeConsumer ! PoisonPill
   }
 }
-*/

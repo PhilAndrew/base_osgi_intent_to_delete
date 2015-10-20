@@ -8,14 +8,14 @@
            ">
 
     <!-- Akka bean is injected into actorStart to allow class ActorStart to use the Akka Camel Actor which is associated with this blueprint camel context -->
-    <!--<bean id="akka" class="com.baseosgi.akkaosgi.AkkaBean" init-method="start" destroy-method="stop">
+    <bean id="akka" class="com.baseosgi.akkaosgi.AkkaBean" init-method="start" destroy-method="stop">
          <property name="bundleContext" ref="blueprintBundleContext"></property>
          <property name="camelContext" ref="camelContext"></property>
      </bean>
 
      <bean id="actorStart" class="com.baseosgi.akkaosgi.ActorStart" init-method="start" destroy-method="stop">
          <property name="akka" ref="akka"></property>
-     </bean>-->
+     </bean>
     <!--
         <bean id="weatherProcessor" class="com.baseosgi.weather.WeatherProcessor" />
     -->
