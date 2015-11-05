@@ -12,10 +12,11 @@ version := "0.1.0.SNAPSHOT"
 scalaVersion := "2.11.7"
 
 featuresRequired := Set(
-  feature("wrap", dependency = true) /* enable provisioning of wrapped bundles */,
-  feature("log") /* implements slf4j */,
-  feature("camel-blueprint"),
-  feature("aries-blueprint"))
+  feature("wrap", dependency = true), // enable provisioning of wrapped bundles, that is those JARs which are non-OSGi
+  feature("log"), // implements slf4j
+  feature("camel-blueprint"), // Allows Apache Camel to work with Blueprint
+  feature("aries-blueprint") // The Blueprint implementation
+)
 
 osgiSettings
 
@@ -50,14 +51,7 @@ Do I need these?
 
   // See http://www.scala-sbt.org/0.13/docs/Library-Management.html
   "com.typesafe.akka" %% "akka-actor" % "2.4.0",
-  "com.typesafe.akka" %% "akka-osgi" % "2.4.0" excludeAll(
-    ExclusionRule(organization = "org.slf4j"),
-    ExclusionRule(organization = "org.osgi") /*
-    Exclusions for:
-      "mvn:org.osgi/org.osgi.compendium/4.3.1",
-      "mvn:org.osgi/org.osgi.core/4.3.1",
-    */
-    ),
+  "com.typesafe.akka" %% "akka-osgi" % "2.4.0",
   "com.typesafe.akka" %% "akka-camel" % "2.4.0" excludeAll(
     ExclusionRule(organization = "org.slf4j"),
     // Exclusion for:
