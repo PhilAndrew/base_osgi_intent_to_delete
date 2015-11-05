@@ -5,8 +5,13 @@
 
 sbt featuresFile osgiBundle
 
-### Use one of these two to allow camel to work in Karaf, I cannot remember which one
+Then take the file target/scala-2.11/features.xml and place it in the deploy directory of Karaf.
 
-feature:repo-add camel 2.15.3
+In Karaf Shell type
 
-feature:chooseurl camel 2.15.3
+features:list | grep _osgi
+
+You can see the base_osgi
+
+Then feature:install base_osgi
+
