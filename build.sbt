@@ -71,26 +71,3 @@ Do I need these?
 
 logLevel := Level.Warn
 
-import java.io.PrintWriter
-
-val removeFromFeatures = Seq(
- // "mvn:org.apache.karaf.features/standard"
-)
-
-// Post-processing of the features.xml file
-val triggeredTask = taskKey[Unit]("Triggered by featuresFile")
-
-triggeredTask <<= Def.task {
-  val featuresFile = "./target/scala-2.11/features.xml"
-
-  val fileLines = io.Source.fromFile(featuresFile).getLines.toList
-  val outLines = fileLines.map( (line: String) => {
-    // if (line.indexOf("mvn:org.apache.karaf.features/standard") >= 0) "" else line
-    if (removeFromFeatures.find( (l) => { line.indexOf(l) >= 0 } ).isDefined) "" else line
-  })
-  new PrintWriter(featuresFile) { write(outLines.mkString("\r\n")); close }
-  def unit: Unit = null
-  unit
-}.triggeredBy(featuresFile in Compile)
-
-
