@@ -50,9 +50,11 @@ libraryDependencies ++= Seq(
 
   // See http://www.scala-sbt.org/0.13/docs/Library-Management.html
   "com.typesafe.akka" %% "akka-actor" % "2.4.0",
+  "com.typesafe.akka" %% "akka-remote" % "2.4.0",
   "com.typesafe.akka" %% "akka-osgi" % "2.4.0" excludeAll(
     ExclusionRule(organization = "org.slf4j"),
-    ExclusionRule(organization = "org.osgi") /*
+    ExclusionRule(organization = "org.osgi")
+    /*
     Exclusions for:
       "mvn:org.osgi/org.osgi.compendium/4.3.1",
       "mvn:org.osgi/org.osgi.core/4.3.1",
@@ -60,9 +62,9 @@ libraryDependencies ++= Seq(
     ),
   "com.typesafe.akka" %% "akka-camel" % "2.4.0" excludeAll(
     ExclusionRule(organization = "org.slf4j"),
+    ExclusionRule(organization = "com.sun.xml.bind")
     // Exclusion for:
     // "mvn:org.slf4j/slf4j-api/1.7.12",
-    ExclusionRule(organization = "com.sun.xml.bind")
     // Exclusion for:
     // "wrap:mvn:com.sun.xml.bind/jaxb-impl/2.2.6",
     ),
