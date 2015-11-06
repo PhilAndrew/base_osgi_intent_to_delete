@@ -44,12 +44,16 @@ class AkkaBean {
   private var akkaCamelBean: ActorRef = _
 
   def start(): Unit = {
-    println("start in akka bean")
+    println("start in akka bean 1")
     AkkaCamelContextProvider.contextProvider = camelContext.asInstanceOf[DefaultCamelContext]
 
+    println("start in akka bean 2")
     val sysConfig = getActorSystemConfiguration(bundleContext)
+    println("start in akka bean 3")
     val actorFactory = OsgiActorSystemFactory(bundleContext, sysConfig)
+    println("start in akka bean 4")
     system = Some(actorFactory.createActorSystem(Option(getActorSystemName(bundleContext))))
+    println("start in akka bean 5")
     //system foreach (addLogServiceListener(context, _))
     system foreach (configure(bundleContext, _))
   }
