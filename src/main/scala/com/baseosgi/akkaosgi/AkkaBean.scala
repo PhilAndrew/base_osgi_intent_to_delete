@@ -56,6 +56,7 @@ class AkkaBean {
     println("start in akka bean 5")
     //system foreach (addLogServiceListener(context, _))
     system foreach (configure(bundleContext, _))
+    println("end in akka bean 6")
   }
 
   def stop(): Unit = {
