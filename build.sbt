@@ -38,11 +38,9 @@ libraryDependencies ++= Seq(
 
 /*
 Do I need these?
-  "org.slf4j" % "slf4j-api" % "1.7.12",
-  "org.slf4j" % "slf4j-simple" % "1.7.12",
-  "org.slf4j" % "jcl-over-slf4j" % "1.7.12",
-  "org.slf4j" % "log4j-over-slf4j" % "1.7.12",
  */
+//  "org.slf4j" % "jcl-over-slf4j" % "1.7.12",
+//  "org.slf4j" % "log4j-over-slf4j" % "1.7.12",
   "org.slf4j" % "slf4j-api" % "1.7.12" % "provided",
   "org.osgi" % "org.osgi.core" % "6.0.0" % "provided",
   FeatureID("org.apache.camel.karaf", "apache-camel", "2.16.0"),
@@ -50,9 +48,23 @@ Do I need these?
 
   // See http://www.scala-sbt.org/0.13/docs/Library-Management.html
   "com.typesafe.akka" %% "akka-actor" % "2.4.0",
-  "com.typesafe.akka" %% "akka-osgi" % "2.4.0",
-  "com.typesafe.akka" %% "akka-camel" % "2.4.0",
-  "com.typesafe" % "config" % "1.3.0" % "provided"
+  "com.typesafe.akka" %% "akka-osgi" % "2.4.0" excludeAll(
+    ExclusionRule(organization = "org.slf4j"),
+    ExclusionRule(organization = "org.osgi") /*
+    Exclusions for:
+      "mvn:org.osgi/org.osgi.compendium/4.3.1",
+      "mvn:org.osgi/org.osgi.core/4.3.1",
+    */
+    ),
+  "com.typesafe.akka" %% "akka-camel" % "2.4.0" excludeAll(
+    ExclusionRule(organization = "org.slf4j"),
+    // Exclusion for:
+    // "mvn:org.slf4j/slf4j-api/1.7.12",
+    ExclusionRule(organization = "com.sun.xml.bind")
+    // Exclusion for:
+    // "wrap:mvn:com.sun.xml.bind/jaxb-impl/2.2.6",
+    ),
+  "com.typesafe" % "config" % "1.3.0" % "provided" // @todo Why do I get a failed download for this? is this required?
 )
 
 logLevel := Level.Warn
