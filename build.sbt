@@ -36,11 +36,13 @@ libraryDependencies ++= Seq(
     "Bundle-Version" -> "20140107"
   )),
 
-/*
-Do I need these?
- */
-//  "org.slf4j" % "jcl-over-slf4j" % "1.7.12",
-//  "org.slf4j" % "log4j-over-slf4j" % "1.7.12",
+  /*
+  Do I need these?
+    "org.slf4j" % "slf4j-api" % "1.7.12",
+    "org.slf4j" % "slf4j-simple" % "1.7.12",
+    "org.slf4j" % "jcl-over-slf4j" % "1.7.12",
+    "org.slf4j" % "log4j-over-slf4j" % "1.7.12",
+   */
   "org.slf4j" % "slf4j-api" % "1.7.12" % "provided",
   "org.osgi" % "org.osgi.core" % "6.0.0" % "provided",
   FeatureID("org.apache.camel.karaf", "apache-camel", "2.16.0"),
